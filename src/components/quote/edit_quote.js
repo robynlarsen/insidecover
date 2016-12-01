@@ -57,7 +57,7 @@ var EditQuote = React.createClass({
       var url = '/api/quotes/' + this.props.params.id;
       var method = 'PUT';
     } else {
-      var url = '/api/quotes';
+      var url = '/api/quotes/';
       var method = 'POST';
     }
 
