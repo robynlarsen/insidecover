@@ -5,17 +5,13 @@ exports.index = function(req, res) {
   // exec() is a mongoose specific item
   // same as the .join in rails -- used to join to models (collections) together
 
-  // Good Reads
-  // key: 1pexfzfURFIdIsADBuJ15w
-  // secret: UjaOCbDl9wzDcVTlCurdgaTjbk2mduBM89CI3klc
-
-  Book.find().populate('user').exec()
+  Book.find({ "readers.user": ('58372b2c95e271a6e51cb983') }).populate('user').exec()
   .then((books) => res.send(books));
 }
 
 exports.show = function(req, res) {
-  Post.findById(req.params.id)
-  .then((posts) => res.send(posts))
+  Book.findById(req.params.id)
+  .then((books) => res.send(books))
   .catch((err) => res.send(404));
 }
 
@@ -27,7 +23,7 @@ exports.update = function(req, res) {
     book.description = req.body.description;
     book.image = req.body.image;
     book.location = req.body.location;
-    book.user = '58372b2c95e271a6e51cb983';
+    book.users = '58372b2c95e271a6e51cb983'; // user: robyn@test.org
 
     book.save()
     .then(function(book) {
@@ -48,7 +44,7 @@ exports.create = function(req, res) {
   book.description = req.body.description;
   book.image = req.body.image;
   book.author = req.body.author;
-  book.user = '5834b08bb7395187b292be38';
+  book.users = '58372b2c95e271a6e51cb983';
   book.isb = req.body.isb;
   book.isb13 = req.body.isb13;
 

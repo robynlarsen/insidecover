@@ -1,27 +1,13 @@
 var mongoose = require('mongoose');
 
-var QuoteSchema = new mongoose.Schema({
-  content: {
-   type: String,
-  },
-  chapter: Number,
-  page: Number
-});
-
-var NoteSchema = new mongoose.Schema({
-  content: String
-});
-
 var ReaderSchema = new mongoose.Schema({
   user: {
-    type: [mongoose.Schema.Types.ObjectId],
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
   currently_reading: Boolean,
   date_added: Date,
-  bookshelves: String,
-  quotes: [QuoteSchema],
-  notes: [NoteSchema]
+  bookshelves: String
 });
 
 var BookSchema = new mongoose.Schema({
@@ -45,7 +31,7 @@ var BookSchema = new mongoose.Schema({
   goodreads_id: Number,
   audible_id: Number,
   googlebooks_id: Number,
-  users: [ReaderSchema]
+  readers: [ReaderSchema]
 });
 
 module.exports = mongoose.model('Book', BookSchema);
