@@ -1,0 +1,10 @@
+:root {
+  --green: #7AB55C;
+  --greenHover: #619945;
+  --red: #C23628;
+  --grey: #A7A7A7;
+  --black: #30373B;
+  --slate: rgb(43, 45, 58);
+  --slateDark: rgb(32, 34, 44);
+  --font: Helvetica, Arial, "Lucida Grande", sans-serif;
+}

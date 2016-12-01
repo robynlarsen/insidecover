@@ -1,0 +1,21 @@
+.section {
+  min-height: 50vh;
+  display: flex;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.section .grid {
+  width: 100%;
+}
+
+.section-hero {
+  text-align: center;
+  min-height: 80vh;
+  display: flex;
+  background: linear-gradient(135deg, rgba(197, 86, 83, .8) 0%,  rgba(26, 45, 87, .8) 100%), url('../../images/hero_cover.jpg') 100%;
+}
+
+.section-hero > * {
+  margin: auto;
+}
