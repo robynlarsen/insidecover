@@ -1,6 +1,26 @@
 .navigation {
   flex: 0 0 auto;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   width: 100%;
+  background-color: transparent;
+  z-index: 1;
+  margin-bottom: -100px;
+  align-items: center;
+  flex-direction: row;
+}
+
+.nav-inner {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: block;
+}
+
+.nav-left {
+  max-width: 200px;
+  min-width: 200px;
 }
