@@ -2,6 +2,11 @@
   padding-left: 0;
 }
 
+.section-books .books {
+  max-height: 180px;
+  overflow-y: hidden;
+}
+
 .book-image {
   max-height: 320px;
 }
