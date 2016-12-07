@@ -2,6 +2,10 @@
   "name": "insidecover",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "test:": "echo \"Error: no test specific\""
+  },
   "devDependencies": {
     "autoprefixer": "6.5.1",
     "babel-core": "6.17.0",
