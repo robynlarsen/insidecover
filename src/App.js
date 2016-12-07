@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import logo from './logo.svg';
+import aboutBooks from './images/books.png';
 import goodReadsLogo from './images/goodreads-logo.png';
 import audibleLogo from './images/audible-logo.png';
 import googleBooksLogo from './images/googlebooks-logo.png';
@@ -11,6 +11,7 @@ import Books from './components/books';
 import Quotes from './components/quotes';
 import Navigation from './components/nav';
 import Footer from './components/footer';
+import SignupForm from './components/signupForm';
 
 class App extends Component {
   constructor(props) {
@@ -29,16 +30,30 @@ class App extends Component {
         <div className="page-content">
           <div className="section section-hero">
             <div className="container">
-              <img src={logo} className="logo" alt="logo" />
-              <h1>Inside Cover</h1>
+              <h2>Notes from the Inside Cover</h2>
               <p>
                 Capturing those moments read that resonate with you for reference later.
               </p>
               <button className="button">Sign Up</button>
             </div>
           </div>
+          <div className="section section-about">
+            <div className="container">
+              <div className="section-content">
+                <h2 className="section-title section-title--secondary">Notes from your books, all in one place.</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos ut, sequi earum beatae vitae pariatur fugiat quisquam iusto odio delectus. Aut cupiditate ut explicabo corporis, voluptatibus inventore minus quo eveniet.
+                </p>
+              </div>
+            </div>
+          </div>
+          <img className="about-books" src={ aboutBooks } alt=""/>
           <div className="container">
-            <div className="section section-about">
+            <div className="section section-center">
+              <h2 className="section-title">Sign up for Beta</h2>
+              <p>Be the first to find out when we launch.</p>
+              <SignupForm />
+            </div>
+            <div className="section">
               <div className="grid grid--middle">
                 <div className="grid-1of2 grid-1of1--palm">
                 </div>
@@ -70,14 +85,22 @@ class App extends Component {
               </div>
             </div>
           </div>
+          <div className="section section-reading">
+            <div className="container">
+              // add currently reading section
+              // then you can click on the book to add quotes
+            </div>
+          </div>
           <div className="section section-books">
             <Books books={ this.state.books } />
           </div>
+
           <div className="section section-quotes">
-            <div className="container">
-              <Quotes quotes={ this.state.quotes } />
-              <Link to='/quote'>New Quote</Link>
-            </div>
+          { React.cloneElement(this.props.children, {
+            quotes: this.state.quotes,
+            books: this.state.books,
+            onRefresh: this.refresh
+          })}
           </div>
         </div>
         <Footer />
