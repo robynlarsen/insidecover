@@ -6,15 +6,15 @@ import BookSelect from '../bookSelect';
 
 // TODO create an auto complete with User's current booklist
 
-var Field = ({ label, value, onChange, name, error }) => <div>
-  <label>{ label }</label>
-  <input type='text' value={ value } name={ name } onChange={ onChange } />
+var Field = ({ label, value, onChange, name, error }) => <div className="field">
+  <label className="field-label">{ label }</label>
+  <input className="field-input" type='text' value={ value } name={ name } placeholder={ name } onChange={ onChange } />
   { error ? <div className="error">{ error.message }</div> : null }
 </div>
 
-var FieldContent = ({ label, value, onChange, name, error }) => <div>
-  <label>{ label }</label>
-  <textarea type='text' value={ value } name={ name } onChange={ onChange } />
+var FieldContent = ({ label, value, onChange, name, error }) => <div className="field">
+  <label className="field-label">{ label }</label>
+  <textarea rows="4" className="field-textarea" type='text' placeholder={ name } value={ value } name={ name } onChange={ onChange } />
   { error ? <div className="error">{ error.message }</div> : null }
 </div>
 
@@ -43,12 +43,12 @@ var EditQuote = React.createClass({
   },
 
   render: function() {
-    return  <div>
+    return  <div className="container">
+      <BookSelect books={ this.props.books } />
       <FieldContent label="Content" value={ this.state.quote.content } name='content' onChange={ this.updateField } error={ this.state.errors.content } />
       <Field label="Chapter" value={ this.state.quote.chapter } name='chapter' onChange={ this.updateField } error={ this.state.errors.chapter } />
       <Field label="Page" value={ this.state.quote.page } name='page' onChange={ this.updateField } error={ this.state.errors.page } />
-      <BookSelect />
-      <button onClick={ this.save }>Save</button>
+      <button className="button" onClick={ this.save }>Save</button>
     </div>
   },
 

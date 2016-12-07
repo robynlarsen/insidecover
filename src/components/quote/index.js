@@ -8,7 +8,7 @@ class Quote extends Component {
       <blockquote className="quote-content">{ this.props.content }</blockquote>
       <cite className="quote-author">{ this.props.book.author }, { this.props.book.title }</cite>
       <div className="actions">
-        <Link to={ '/quote/edit/' + this.props.id }>Edit</Link>
+        <Link to={ '/edit/' + this.props.id }>Edit</Link>
       </div>
     </div>
   }
