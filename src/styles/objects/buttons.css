@@ -1,11 +1,29 @@
 .button {
   outline: none;
   border: none;
-  background-color: rgb(26, 45, 87);
-  padding: 10px 20px;
-  color: rgba(255, 255, 255, .8);
+  background-color: rgb(141, 89, 251);
+  padding: 15px 30px;
+  color: white;
+  text-transform: uppercase;
+  margin-left: 5px;
+  margin-right: 5px;
+  letter-spacing: 1px;
+  font-size: .8rem;
+  transition: background-color .36s ease-in-out;
 }
 
 button:hover {
-  background-color: rgba(26, 45, 87, .7);
+  background-color: rgba(141, 89, 251, .7);
+}
+
+.button-secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid currentColor;
+  text-decoration: none;
+  transition: opacity .36s ease-in-out;
+}
+
+.button-secondary:hover {
+  opacity: .6;
 }

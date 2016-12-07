@@ -2,8 +2,10 @@
 @import './globals/globals.css';
 @import './globals/variables.css';
 @import './globals/utilities.css';
+@import './globals/type.css';
 
 @import '../../node_modules/twg-frontend-scaffolding/dist/scaffolding.css';
 
 @import './objects/sections.css';
 @import './objects/buttons.css';
+@import './objects/forms.css';
