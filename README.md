@@ -27,6 +27,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   - elastic search
 3. Sync with Audible to pull in reading list
   - pull in notes from Audible Books API
+4. Add a fuzzy search ability to add quotes instead of through book shelf or already reading book section
 
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
