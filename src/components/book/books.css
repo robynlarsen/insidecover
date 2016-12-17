@@ -3,10 +3,22 @@
 }
 
 .section-books .books {
-  max-height: 180px;
+  max-height: 220px;
   overflow-y: hidden;
 }
 
 .book-image {
   max-height: 320px;
+}
+
+.books .book {
+  text-align: center;
+}
+
+.book-title {
+  font-weight: 500;
+}
+
+.book-author {
+  color: var(--slateLight);
 }

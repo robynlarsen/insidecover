@@ -9,10 +9,11 @@ class Book extends Component {
       <h4 className="book-title">{ this.props.number } { this.props.title }</h4>
       <span className="book-author">{ this.props.author }</span>
       <div className="actions">
-        <Link to={ '/edit/' + this.props.id }>Edit</Link>
+        <Link className="button button-tertiary" to={'/book/' + this.props.id + '/quote' }>Add Quote</Link>
       </div>
     </div>
   }
 }
 
 export default Book;
+// <Link to={ '/edit/' + this.props.id }>Edit</Link>
