@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 var express = require('express');
 var app = express();
 
@@ -6,8 +8,8 @@ var webpackMiddleware = require('webpack-dev-middleware');
 
 var mongoose = require('mongoose');
 // we want to make sure the application is running.
-// mongoose.connect('mongodb://127.0.0.1/insidecover');
-mongoose.connect(process.env.MONGODB_URL || 'mongodb://127.0.0.1/insidecover');
+mongoose.connect('mongodb://127.0.0.1/insidecover');
+// mongoose.connect(process.env.MONGODB_URL || 'mongodb://127.0.0.1/insidecover');
 // to connect to the account then use
 // mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds119578.mlab.com:19578/insidecover');
 // mongoose.connect('process.env.MONGODB_URL');
@@ -32,5 +34,5 @@ require('./api/users/model');
 app.get('*', (req, res) => res.sendFile(__dirname + '/public/index.html'))
 
 // heroku runs a random port so we can either take PORT or 8080
-// app.listen(8080);
-app.listen(process.env.PORT || 8080);
+app.listen(8080);
+// app.listen(process.env.PORT || 8080);

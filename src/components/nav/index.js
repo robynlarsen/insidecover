@@ -13,10 +13,7 @@ var Navigation = React.createClass({
               <img src={logo} className="logo" alt="inside cover" />
             </Link>
           </div>
-
           <div className="nav-right">
-            <Link to='/quote'>New Quote</Link>
-            <Link to='/note'>New Note</Link>
             <Link className="u-right button button-secondary" to='/'>Login</Link>
           </div>
         </div>
@@ -26,3 +23,5 @@ var Navigation = React.createClass({
 });
 
 module.exports = Navigation;
+
+//<Link to='/quote'>New Quote</Link>

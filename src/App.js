@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import aboutBooks from './images/books.png';
 import goodReadsLogo from './images/goodreads-logo.png';
-import audibleLogo from './images/audible-logo.png';
+import audibleLogo from './images/audible-logo.svg';
 import googleBooksLogo from './images/googlebooks-logo.png';
 import './App.css';
 import './styles/default.css';
@@ -47,13 +47,15 @@ class App extends Component {
             </div>
           </div>
           <img className="about-books" src={ aboutBooks } alt=""/>
-          <div className="container">
-            <div className="section section-center">
+          <div className="section section-center">
+            <div className="container">
               <h2 className="section-title">Sign up for Beta</h2>
               <p>Be the first to find out when we launch.</p>
               <SignupForm />
             </div>
-            <div className="section">
+          </div>
+          <div className="section section-secondary">
+            <div className="container">
               <div className="grid grid--middle">
                 <div className="grid-1of2 grid-1of1--palm">
                 </div>
@@ -63,7 +65,9 @@ class App extends Component {
                 </div>
               </div>
             </div>
-            <div className="section section-tools">
+          </div>
+          <div className="section section-tools">
+            <div className="container">
               <div className="grid grid--middle">
                 <div className="grid-1of2 grid-1of1--palm">
                   <h2 className="section-title">Tools</h2>
@@ -85,28 +89,25 @@ class App extends Component {
               </div>
             </div>
           </div>
-          <div className="section section-reading">
-            <div className="container">
-              // add currently reading section
-              // then you can click on the book to add quotes
-            </div>
-          </div>
           <div className="section section-books">
             <Books books={ this.state.books } />
           </div>
 
-          <div className="section section-quotes">
-          { React.cloneElement(this.props.children, {
-            quotes: this.state.quotes,
-            books: this.state.books,
-            onRefresh: this.refresh
-          })}
+          <div className="section section-quotes" id="quote">
+            { React.cloneElement(this.props.children, {
+              quotes: this.state.quotes,
+              books: this.state.books,
+              onRefresh: this.refresh.bind(this)
+            })}
           </div>
         </div>
         <Footer />
       </div>
     );
   }
+
+  // add currently reading section
+  // then you can click on the book to add quotes
 
   refresh() {
     $.get('/api/books', (data) => this.setState({books: data}));

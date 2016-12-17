@@ -11,7 +11,7 @@ import EditQuote from './components/quote/edit_quote';
 ReactDOM.render(<Router history={browserHistory}>
   <Route path='/' component={ App }>
     <IndexRoute component={ QuoteList } />
-    <Route path='quote' component={ EditQuote } />
+    <Route path='/book/:id/quote' component={ EditQuote } />
     <Route path='edit/:id' component={ EditQuote } />
   </Route>
 </Router>, document.getElementById("root"));
