@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Book from '../components/book';
 import '../components/book/books.css';
-import '../scripts/awesomplete.css';
-import '../scripts/awesomplete.min.js';
+// import '../scripts/awesomplete.css';
+// import '../scripts/awesomplete.min.js';
 
 class BookSelect extends Component {
   render() {

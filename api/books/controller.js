@@ -5,7 +5,7 @@ exports.index = function(req, res) {
   // exec() is a mongoose specific item
   // same as the .join in rails -- used to join to models (collections) together
 
-  Book.find({ "readers.user": ('58372b2c95e271a6e51cb983') }).populate('user').exec()
+  Book.find({ "readers.user": (process.env.DUMMY_USER_ID) }).populate('user').exec()
   .then((books) => res.send(books));
 }
 
@@ -23,7 +23,7 @@ exports.update = function(req, res) {
     book.description = req.body.description;
     book.image = req.body.image;
     book.location = req.body.location;
-    book.users = '58372b2c95e271a6e51cb983'; // user: robyn@test.org
+    book.users = process.env.DUMMY_USER_ID; // user: robyn@test.org
 
     book.save()
     .then(function(book) {
@@ -44,7 +44,7 @@ exports.create = function(req, res) {
   book.description = req.body.description;
   book.image = req.body.image;
   book.author = req.body.author;
-  book.users = '58372b2c95e271a6e51cb983';
+  book.users = process.env.DUMMY_USER_ID;
   book.isb = req.body.isb;
   book.isb13 = req.body.isb13;
 

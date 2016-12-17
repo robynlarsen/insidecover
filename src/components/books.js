@@ -13,7 +13,8 @@ class Books extends Component {
                   <Book image={ book.image }
                         title={ book.title }
                         author={ book.author }
-                        number={index + 1} />
+                        number={index + 1}
+                        id={ book._id } />
                 </li>;
         })
       }

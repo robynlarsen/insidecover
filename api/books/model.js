@@ -21,11 +21,9 @@ var BookSchema = new mongoose.Schema({
   },
   isbn: {
     type: String,
-    required: true
   },
   isbn13: {
     type: Number,
-    required: true
   },
   image: String,
   goodreads_id: Number,
