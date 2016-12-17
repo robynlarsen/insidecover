@@ -29,7 +29,7 @@ exports.update = function(req, res) {
     quote.chapter = req.body.chapter;
     quote.page = req.body.page;
     quote.book = req.body.book;
-    quote.user = '58372b2c95e271a6e51cb983'; // user: robyn@test.org
+    quote.user = process.env.DUMMY_USER_ID; // user: robyn@test.org
 
     quote.save()
     .then(function(quote) {
@@ -50,7 +50,7 @@ exports.create = function(req, res) {
   quote.chapter = req.body.chapter;
   quote.page = req.body.page;
   quote.book = req.body.book;
-  quote.user = '58372b2c95e271a6e51cb983'; // user: robyn@test.org
+  quote.user = process.env.DUMMY_USER_ID; // user: robyn@test.org
 
   quote.save()
   .then(function(quote) {
