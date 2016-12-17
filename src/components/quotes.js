@@ -7,10 +7,10 @@ class Quotes extends Component {
       <h2>Quotes</h2>
       <ol className="quotes grid">
       {
-        this.props.quotes.map(function(quote, index){
+        this.props.quotes.map((quote, index) => {
           return <li className="quote grid-1of2 grid-1of1--palm" key={ quote._id }>
                   <Quote content={ quote.content } chapter={quote.chapter }
-                        number={index + 1} book={ quote.book } readers={ quote.readers } id={ quote._id }/>
+                        number={index + 1} book={ quote.book } readers={ quote.readers } id={ quote._id } onRefresh={ this.props.onRefresh } />
                 </li>;
         })
       }

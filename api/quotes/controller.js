@@ -50,7 +50,8 @@ exports.create = function(req, res) {
   quote.chapter = req.body.chapter;
   quote.page = req.body.page;
   quote.book = req.body.book;
-  quote.user = process.env.DUMMY_USER_ID; // user: robyn@test.org
+  quote.user = process.env.DUMMY_USER_ID;
+  // user: robyn@test.org
 
   quote.save()
   .then(function(quote) {
@@ -59,4 +60,10 @@ exports.create = function(req, res) {
     res.status(422);
     res.send(err);
   });
+}
+
+exports.delete = function(req, res, next) {
+  Quote.remove({_id: req.params.id})
+  .then(() => res.send(200))
+  .catch(next);
 }

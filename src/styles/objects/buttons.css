@@ -11,9 +11,10 @@
   font-size: .8rem;
   transition: background-color .36s ease-in-out;
   font-weight: lighter;
+  text-decoration: none;
 }
 
-button:hover {
+.button:hover {
   background-color: rgba(141, 89, 251, .7);
 }
 
@@ -51,4 +52,8 @@ button:hover {
   margin-right: 2px;
   left: 0;
   display: inline-block;
+}
+
+.button--small {
+  padding: 5px 10px;
 }

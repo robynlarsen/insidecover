@@ -52,10 +52,15 @@ var EditQuote = React.createClass({
       <Field label="Chapter" value={ this.state.quote.chapter } name='chapter' onChange={ this.updateField } error={ this.state.errors.chapter } />
       <Field label="Page" value={ this.state.quote.page } name='page' onChange={ this.updateField } error={ this.state.errors.page } />
       <button className="button" onClick={ this.save }>Save</button>
+      <button className="button button-secondary" onClick={ this.cancel }>Cancel</button>
     </div>
   },
 
   // <BookSelect books={ this.props.books } />
+
+  cancel: function() {
+    browserHistory.push('/');
+  },
 
   save: function() {
     if (this.state.isEditing) {
