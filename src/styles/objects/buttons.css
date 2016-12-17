@@ -10,6 +10,7 @@
   letter-spacing: 1px;
   font-size: .8rem;
   transition: background-color .36s ease-in-out;
+  font-weight: lighter;
 }
 
 button:hover {
@@ -26,4 +27,28 @@ button:hover {
 
 .button-secondary:hover {
   opacity: .6;
+}
+
+.button-tertiary {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--slateLight);
+  border: 0.5px solid currentColor;
+  text-decoration: none;
+  transition: opacity .36s ease-in-out;
+  margin-top: 20px;
+  font-size: .6rem;
+  padding: 10px 15px;
+}
+
+.button-tertiary:hover {
+  color: var(--slate);
+  border-color: currentColor;
+}
+
+.button-tertiary:before {
+  content: '+';
+  margin-right: 2px;
+  left: 0;
+  display: inline-block;
 }
