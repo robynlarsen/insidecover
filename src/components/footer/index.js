@@ -10,7 +10,7 @@ var Footer = React.createClass({
           <div className="combo">
             <div className="combo-first"></div>
             <div className="combo-last u-right">
-              <p>insideCover &copy; { new Date().getFullYear() }</p>
+              <p>insideCover &copy; { new Date().getFullYear() } | Design by <a href="http://creativecocktail.ca">Sarah</a> | Development by <a href="http://robynlarsen.ca">Robyn</a></p>
             </div>
           </div>
 
