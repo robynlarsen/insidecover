@@ -12,6 +12,6 @@ ReactDOM.render(<Router history={browserHistory}>
   <Route path='/' component={ App }>
     <IndexRoute component={ QuoteList } />
     <Route path='/book/:id/quote' component={ EditQuote } />
-    <Route path='edit/:id' component={ EditQuote } />
+    <Route path='edit/:quoteId' component={ EditQuote } />
   </Route>
 </Router>, document.getElementById("root"));

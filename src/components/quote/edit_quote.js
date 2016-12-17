@@ -25,25 +25,29 @@ var EditQuote = React.createClass({
       page: '',
       book: book
     }
-    // if (this.props.params.id) {
-    //   var quote = this.props.quotes.find((quote) => quote._id == this.props.params.id);
-    //   return {
-    //     isEditing: true,
-    //     quote: quote || emptyQuote,
-    //     errors: {}
-    //   }
-    // } else {
+    if (this.props.params.quoteId) {
+      var quote = this.props.quotes.find((quote) => quote._id == this.props.params.quoteId);
+      return {
+        isEditing: true,
+        quote: quote || emptyQuote,
+        errors: {}
+      }
+    } else {
       return {
         isEditing: false,
         quote: emptyQuote,
         errors: {}
       }
-    // }
+    }
   },
 
   render: function() {
     return  <div className="container">
-      <h4>Add a quote to { this.state.quote.book.title }</h4>
+      {
+        this.state.isEditing
+          ? ''
+          : <h4>Add a quote to { this.state.quote.book.title }</h4>
+      }
       <FieldContent label="Content" value={ this.state.quote.content } name='content' onChange={ this.updateField } error={ this.state.errors.content } />
       <Field label="Chapter" value={ this.state.quote.chapter } name='chapter' onChange={ this.updateField } error={ this.state.errors.chapter } />
       <Field label="Page" value={ this.state.quote.page } name='page' onChange={ this.updateField } error={ this.state.errors.page } />
@@ -55,7 +59,7 @@ var EditQuote = React.createClass({
 
   save: function() {
     if (this.state.isEditing) {
-      var url = '/api/quotes/' + this.props.params.id;
+      var url = '/api/quotes/' + this.props.params.quoteId;
       var method = 'PUT';
       console.log('editing the quote');
     } else {
