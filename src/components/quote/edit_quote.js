@@ -1,50 +1,49 @@
 import React from 'react';
 import $ from 'jquery';
-// import styles from './edit_post.scss'
 import { browserHistory } from 'react-router';
 import BookSelect from '../bookSelect';
 
 // TODO create an auto complete with User's current booklist
+  // <label className="field-label">{ label }</label>
 
 var Field = ({ label, value, onChange, name, error }) => <div className="field">
-  <label className="field-label">{ label }</label>
   <input className="field-input" type='text' value={ value } name={ name } placeholder={ name } onChange={ onChange } />
   { error ? <div className="error">{ error.message }</div> : null }
 </div>
 
 var FieldContent = ({ label, value, onChange, name, error }) => <div className="field">
-  <label className="field-label">{ label }</label>
   <textarea rows="4" className="field-textarea" type='text' placeholder={ name } value={ value } name={ name } onChange={ onChange } />
   { error ? <div className="error">{ error.message }</div> : null }
 </div>
 
 var EditQuote = React.createClass({
   getInitialState: function() {
+    var book = this.props.books.find((book) => book._id == this.props.params.id);
     var emptyQuote = {
       content: '',
       chapter: '',
       page: '',
-      books: []
+      book: book
     }
-    if (this.props.params.id) {
-      var quote = this.props.quotes.find((quote) => quote._id == this.props.params.id);
-      return {
-        isEditing: true,
-        quote: quote || emptyQuote,
-        errors: {}
-      }
-    } else {
+    // if (this.props.params.id) {
+    //   var quote = this.props.quotes.find((quote) => quote._id == this.props.params.id);
+    //   return {
+    //     isEditing: true,
+    //     quote: quote || emptyQuote,
+    //     errors: {}
+    //   }
+    // } else {
       return {
         isEditing: false,
         quote: emptyQuote,
         errors: {}
       }
-    }
+    // }
   },
 
   render: function() {
     return  <div className="container">
-      <BookSelect books={ this.props.books } />
+      <h4>Add a quote to { this.state.quote.book.title }</h4>
       <FieldContent label="Content" value={ this.state.quote.content } name='content' onChange={ this.updateField } error={ this.state.errors.content } />
       <Field label="Chapter" value={ this.state.quote.chapter } name='chapter' onChange={ this.updateField } error={ this.state.errors.chapter } />
       <Field label="Page" value={ this.state.quote.page } name='page' onChange={ this.updateField } error={ this.state.errors.page } />
@@ -52,13 +51,17 @@ var EditQuote = React.createClass({
     </div>
   },
 
+  // <BookSelect books={ this.props.books } />
+
   save: function() {
     if (this.state.isEditing) {
       var url = '/api/quotes/' + this.props.params.id;
       var method = 'PUT';
+      console.log('editing the quote');
     } else {
       var url = '/api/quotes/';
       var method = 'POST';
+      console.log('posting the new quote');
     }
 
     $.ajax({
