@@ -11,6 +11,12 @@
   margin-top: 20px;
 }
 
+.field-input + .button {
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+}
+
 .section-quotes ::-webkit-input-placeholder {
   color: rgba(255, 255, 255, .5);
   text-transform: capitalize;

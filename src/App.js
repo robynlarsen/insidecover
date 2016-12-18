@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import aboutBooks from './images/books.png';
 import goodReadsLogo from './images/goodreads-logo.png';
 import audibleLogo from './images/audible-logo.svg';
+import connectedImage from './images/connected.svg';
 import googleBooksLogo from './images/googlebooks-logo.png';
 import './App.css';
 import './styles/default.css';
@@ -58,6 +59,7 @@ class App extends Component {
             <div className="container">
               <div className="grid grid--middle">
                 <div className="grid-1of2 grid-1of1--palm">
+                  <img src={ connectedImage } className="feature-image" alt=""/>
                 </div>
                 <div className="grid-1of2 grid-1of1--palm">
                   <h2 className="section-title">About</h2>
