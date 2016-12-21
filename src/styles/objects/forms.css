@@ -45,6 +45,15 @@ textarea {
   padding: 10px 5px;
 }
 
+.field-radio label {
+  display: inline-block;
+  min-width: 100px;
+}
+
+.field-radio input {
+  max-width: 30px;
+}
+
 .section-quotes input,
 .section-quotes textarea {
   border-color: rgba(255, 255, 255, .5);
@@ -110,4 +119,12 @@ textarea {
 
 .form-signup .button {
   width: 120px;
+}
+
+.form-hero.a11y + .button {
+  display: inline-block;
+}
+
+.form-hero + .button {
+  display: none;
 }

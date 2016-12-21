@@ -13,6 +13,7 @@ import Quotes from './components/quotes';
 import Navigation from './components/nav';
 import Footer from './components/footer';
 import SignupForm from './components/signupForm';
+import Login from './components/login';
 
 class App extends Component {
   constructor(props) {
@@ -20,14 +21,14 @@ class App extends Component {
 
     this.state = {
       books: [],
-      quotes: []
+      quotes: [],
+      user: null
     }
   }
 
   render() {
-    return (
-      <div className="page">
-        <Navigation />
+    return <div className="page">
+        <Navigation loggedIn={ (this.state.user != null) ? true : false } />
         <div className="page-content">
           <div className="section section-hero">
             <div className="container">
@@ -35,7 +36,8 @@ class App extends Component {
               <p>
                 Capturing those moments read that resonate with you for reference later.
               </p>
-              <button className="button">Sign Up</button>
+              { (this.state.user == null) ? <div> <Login onLogin={ this.userLoggedIn.bind(this) }/>
+               <button className="button" onClick={ this.checkFormStatus }>Sign Up</button> </div> : '' }
             </div>
           </div>
           <div className="section section-about">
@@ -73,7 +75,7 @@ class App extends Component {
               <div className="grid grid--middle">
                 <div className="grid-1of2 grid-1of1--palm">
                   <h2 className="section-title">Tools</h2>
-                  <p>Sync your goodReads, Google Books and Amazon Audible libraries in one spot.</p>
+                  <p>Sync up your favorite book tools from eReaders to hard covers alongside the goodReads, Google Books and Amazon Audible libraries.</p>
                 </div>
                 <div className="grid-1of2 grid-1of1--palm">
                   <div className="grid grid--middle">
@@ -91,21 +93,27 @@ class App extends Component {
               </div>
             </div>
           </div>
-          <div className="section section-books">
-            <Books books={ this.state.books } />
-          </div>
-
-          <div className="section section-quotes" id="quote">
-            { React.cloneElement(this.props.children, {
-              quotes: this.state.quotes,
-              books: this.state.books,
-              onRefresh: this.refresh.bind(this)
-            })}
-          </div>
+          { this.renderAuthenticatedContent() }
         </div>
         <Footer />
+    </div>
+  }
+
+  renderAuthenticatedContent() {
+    if(this.state.user) {
+      return <div>
+        <div className="section section-books">
+          <Books books={ this.state.books } />
+        </div>
+        <div className="section section-quotes" id="quote">
+          { React.cloneElement(this.props.children, {
+            quotes: this.state.quotes,
+            books: this.state.books,
+            onRefresh: this.refresh.bind(this)
+          })}
+        </div>
       </div>
-    );
+    }
   }
 
   // add currently reading section
@@ -117,7 +125,21 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.refresh();
+    $.getJSON('/api/me', (user) => {
+      console.log(user);
+      if (user !== null) {
+        this.userLoggedIn(user);
+      }
+    })
+  }
+
+  checkFormStatus() {
+    document.getElementById("radioSignUp").checked=true;
+    document.getElementById("form-hero").classList.remove("a11y");
+  }
+
+  userLoggedIn(user) {
+    this.setState({ user: user }, this.refresh);
   }
 }
 

@@ -4,7 +4,7 @@ import logo from '../../logo.svg';
 import './nav.css';
 
 var Navigation = React.createClass({
-  render: function() {
+  render() {
     return  <div className="navigation">
       <div className="container">
         <div className="nav-inner">
@@ -14,11 +14,15 @@ var Navigation = React.createClass({
             </Link>
           </div>
           <div className="nav-right">
-            <Link className="u-right button button-secondary" to='/'>Login</Link>
+            { this.props.loggedIn ? <Link className='u-right' to='/profile'>Profile</Link> : <button className="u-right button button-secondary" onClick={ this.checkFormStatus }>Login</button> }
           </div>
         </div>
       </div>
     </div>
+  },
+
+  checkFormStatus() {
+    document.getElementById("form-hero").classList.remove("a11y");
   }
 });
 
