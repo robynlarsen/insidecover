@@ -79,7 +79,8 @@ module.exports = {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web'
-    }
+    },
+    root: paths.appSrc
   },
 
   module: {
@@ -99,7 +100,6 @@ module.exports = {
         include: paths.appSrc,
         loader: 'babel',
         query: {
-
           // This is a feature of `babel-loader` for webpack (not Babel itself).
           // It enables caching results in ./node_modules/.cache/react-scripts/
           // directory for faster rebuilds. We use findCacheDir() because of:
@@ -114,9 +114,16 @@ module.exports = {
       // "style" loader turns CSS into JS modules that inject <style> tags.
       // In production, we use a plugin to extract that CSS to a file, but
       // in development "style" loader enables hot editing of CSS.
+      // !outputStyle=expanded
+      {
+        test: /\.styl$/,
+        // loader: 'style!css?stylus?sourceMap!postcss',
+        // loader: 'css-loader!stylus-loader?paths=node_modules/bootstrap-stylus/stylus/'
+        loader: 'style!css?sourceMap!postcss!stylus-loader?outputStyle=expanded',
+      },
       // {
-      //   test: /\.styl$/,
-      //   loader: 'style!css?sourceMap!postcss!stylus?outputStyle=expanded',
+      //   test: /\.css$/,
+      //   loader: 'style!css!postcss'
       // },
       {
         test: /\.css$/,
