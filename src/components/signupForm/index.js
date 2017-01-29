@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../styles/default.css';
+// import '../../styles/default.css';
 
 class SignupForm extends Component {
   render() {

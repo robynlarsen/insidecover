@@ -1,7 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
 import { browserHistory } from 'react-router';
-import BookSelect from '../bookSelect';
 
 // TODO create an auto complete with User's current booklist
   // <label className="field-label">{ label }</label>
@@ -18,7 +17,7 @@ var FieldContent = ({ label, value, onChange, name, error }) => <div className="
 
 var EditQuote = React.createClass({
   getInitialState: function() {
-    var book = this.props.books.find((book) => book._id == this.props.params.id);
+    var book = this.props.books.find((book) => book._id === this.props.params.id);
     var emptyQuote = {
       content: '',
       chapter: '',
@@ -26,7 +25,7 @@ var EditQuote = React.createClass({
       book: book
     }
     if (this.props.params.quoteId) {
-      var quote = this.props.quotes.find((quote) => quote._id == this.props.params.quoteId);
+      var quote = this.props.quotes.find((quote) => quote._id === this.props.params.quoteId);
       return {
         isEditing: true,
         quote: quote || emptyQuote,
@@ -42,7 +41,8 @@ var EditQuote = React.createClass({
   },
 
   render: function() {
-    return  <div className="container">
+    return  <div className="section">
+        <div className="container">
       {
         this.state.isEditing
           ? ''
@@ -53,6 +53,7 @@ var EditQuote = React.createClass({
       <Field label="Page" value={ this.state.quote.page } name='page' onChange={ this.updateField } error={ this.state.errors.page } />
       <button className="button" onClick={ this.save }>Save</button>
       <button className="button button-secondary" onClick={ this.cancel }>Cancel</button>
+      </div>
     </div>
   },
 
@@ -68,8 +69,8 @@ var EditQuote = React.createClass({
       var method = 'PUT';
       console.log('editing the quote');
     } else {
-      var url = '/api/quotes/';
-      var method = 'POST';
+      url = '/api/quotes/';
+      method = 'POST';
       console.log('posting the new quote');
     }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import logo from '../../logo.svg';
-import './nav.css';
+import './nav.styl';
 
 var Navigation = React.createClass({
   render() {

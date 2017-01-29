@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Book from '../components/book';
-import '../components/book/books.css';
+// import '../components/book/books.css';
 
 class Books extends Component {
   render() {

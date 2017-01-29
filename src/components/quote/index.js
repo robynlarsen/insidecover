@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import $ from 'jquery';
 import { browserHistory } from 'react-router';
-import './quote.css';
+import './quote.styl';
 
 class Quote extends Component {
   render() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import './footer.css';
+// import './footer.css';
 // import { Link } from 'react-router';
 
 var Footer = React.createClass({

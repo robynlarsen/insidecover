@@ -1,130 +1,106 @@
-.field + .field {
+.field + .field
   margin-top: 20px;
-}
 
-.field .field-label {
+.field .field-label
   display: block;
   margin-bottom: 5px;
-}
 
-.field + .button {
+.field + .button
   margin-top: 20px;
-}
 
-.field-input + .button {
+.field-input + .button
   padding-left: 0;
   padding-right: 0;
   text-align: center;
-}
 
-.section-quotes ::-webkit-input-placeholder {
+/*.section-quotes ::-webkit-input-placeholder
   color: rgba(255, 255, 255, .5);
   text-transform: capitalize;
-}
 
-.section-quotes :-moz-placeholder { /* Firefox 18- */
+.section-quotes :-moz-placeholder  Firefox 18-
   color: rgba(255, 255, 255, .5);
   text-transform: capitalize;
-}
 
-.section-quotes ::-moz-placeholder {  /* Firefox 19+ */
+.section-quotes ::-moz-placeholder   Firefox 19+
   color: rgba(255, 255, 255, .5);
   text-transform: capitalize;
-}
 
-.section-quotes :-ms-input-placeholder {
+.section-quotes :-ms-input-placeholder
   color: rgba(255, 255, 255, .5);
-  text-transform: capitalize;
-}
+  text-transform: capitalize; */
 
 input,
-textarea {
+textarea
   outline: none;
   background-color: #f1f1f1;
   width: 100%;
-  padding: 10px 5px;
-}
+  padding: 10px;
+  border-color: transparent;
 
-.field-radio label {
+.field-radio label
   display: inline-block;
   min-width: 100px;
-}
 
-.field-radio input {
+.field-radio input
   max-width: 30px;
-}
 
 .section-quotes input,
-.section-quotes textarea {
+.section-quotes textarea
   border-color: rgba(255, 255, 255, .5);
   background-color: transparent;
-}
 
-.section-quotes select {
+.section-quotes select
   color: rgba(255, 255, 255, .5);
   background-color: transparent;
-}
 
-.field-select {
+.field-select
   position: relative;
-}
 
-.field-select select {
+.field-select select
   background-color: transparent;
   border: none;
   outline: none;
-}
 
-.field-select {
+.field-select
   padding: 10px 5px;
   border: 1px solid rgba(255, 255, 255, .5);
-}
 
-.section-quotes .field-select {
+.section-quotes .field-select
   border-color: rgba(255, 255, 255, .5);
-}
 
-.field-select:before {
-  content: '';
-  right: 5px;
-  position: absolute;
-}
+.field-select
+  &:before
+    content: '';
+    right: 5px;
+    position: absolute;
 
-input {
+input
   border-top: none;
   border-left: none;
   border-right: none;
-}
 
-textarea {
+textarea
   resize: none;
   padding: 10px;
-}
 
 .section-quotes input,
-.section-quotes textarea {
+.section-quotes textarea
   color: rgba(255, 255, 255, .5);
-}
 
-.form-signup {
+.form-signup
   display: block;
-}
 
-.form-signup .field-input {
+.form-signup .field-input
   width: calc(50% - 120px);
   padding-top: 12.5px;
   padding-bottom: 12.5px;
   padding-left: 15px;
-}
 
-.form-signup .button {
+.form-signup .button
   width: 120px;
-}
 
-.form-hero.a11y + .button {
+.form-hero.a11y + .button
   display: inline-block;
-}
 
-.form-hero + .button {
+.form-hero + .button
   display: none;
-}

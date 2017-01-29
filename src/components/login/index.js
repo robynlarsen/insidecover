@@ -18,16 +18,16 @@ var Login = React.createClass({
     return <div className="form-hero a11y" id="form-hero">
       <div className="field field-radio">
         <label>
-          <input type='radio' name='mode' value='login'onChange={ this.updateField } checked={ this.state.login.mode == 'login'} id="radioLogin" />
+          <input type='radio' name='mode' value='login'onChange={ this.updateField } checked={ this.state.login.mode === 'login'} id="radioLogin" />
           Login
         </label>
         <label>
-          <input type='radio' className="field-radio" name='mode' value='signup' onChange={ this.updateField } checked={ this.state.login.mode == 'signup'} id="radioSignUp" />
+          <input type='radio' className="field-radio" name='mode' value='signup' onChange={ this.updateField } checked={ this.state.login.mode === 'signup'} id="radioSignUp" />
           Sign-up
         </label>
       </div>
 
-      { this.state.login.mode == 'signup' ?
+      { this.state.login.mode === 'signup' ?
           <Field label="Name" name="name" value={ this.state.login.name } onChange={ this.updateField } /> : null
       }
       <Field label="E-mail" name="email" value={ this.state.login.email } onChange={ this.updateField } />
@@ -35,13 +35,13 @@ var Login = React.createClass({
 
       { this.state.error ? <div>{ this.state.error }</div> : null }
 
-      <button className="button" onClick={ this.login }>{ this.state.login.mode == 'login' ? 'Login' : 'Sign Up' }</button>
+      <button className="button" onClick={ this.login }>{ this.state.login.mode === 'login' ? 'Login' : 'Sign Up' }</button>
     </div>
   },
 
   login: function() {
     var url;
-    if (this.state.login.mode == 'login') {
+    if (this.state.login.mode === 'login') {
       url = "/api/login";
     } else {
       url = "/api/signup";

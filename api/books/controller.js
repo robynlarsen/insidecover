@@ -4,8 +4,8 @@ exports.index = function(req, res) {
   // grab all the posts in the users and then exec() runs all the stuff
   // exec() is a mongoose specific item
   // same as the .join in rails -- used to join to models (collections) together
-
-  Book.find({ "readers.user": (process.env.DUMMY_USER_ID) }).populate('user').exec()
+  // replace process.env.DUMMY_USER_ID with readers.user
+  Book.find("readers.user").populate('user').exec()
   .then((books) => res.send(books));
 }
 
@@ -23,7 +23,9 @@ exports.update = function(req, res) {
     book.description = req.body.description;
     book.image = req.body.image;
     book.location = req.body.location;
-    book.users = process.env.DUMMY_USER_ID; // user: robyn@test.org
+    // book.users = req.body.user._id; // user: robyn@test.org
+    book.readers = req.body.readers.user._id; // user: robyn@test.org
+    // book.readers = process.env.DUMMY_USER_ID; // user: robyn@test.org
 
     book.save()
     .then(function(book) {
@@ -44,7 +46,8 @@ exports.create = function(req, res) {
   book.description = req.body.description;
   book.image = req.body.image;
   book.author = req.body.author;
-  book.users = process.env.DUMMY_USER_ID;
+  book.readers = req.body.readers.user._id;
+  // book.users = process.env.DUMMY_USER_ID;
   book.isb = req.body.isb;
   book.isb13 = req.body.isb13;
 
